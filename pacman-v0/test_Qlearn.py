@@ -15,13 +15,17 @@ import theano.tensor as T
 import os
 import cPickle as pickle
 
+# load game settings.
 _layout = layout.getLayout(os.environ['layout'])
 ghostType = DirectionalGhost
 agents = [ghostType( i+1 ) for i in range(2)]
 display = textDisplay.NullGraphics()
-task = PacmanTask(_layout, agents, display)
+
+# create the task.
+task = PacmanTask(_layout, agents, display, state_repr=os.environ['state_repr'])
 state_shape = task.state_shape
 
+# define potential neural network architectures.
 def two_layer(states):
     '''
     two layer neural network with same number of hidden units.
@@ -48,8 +52,11 @@ def conv_net(states):
 
 arch_func = globals()[os.environ['arch']]
 
+# define learning agent.
 dqn = DQN(task, arch_func=arch_func, state_type=T.tensor4)
 learner = DeepQlearn(dqn, gamma=0.95, lr=1e-3, memory_size = 100, epsilon=0.5)
+
+# learn.
 scores = []
 for it in range(1000):
     learner.run(task, num_episodes = 100)
@@ -58,6 +65,7 @@ for it in range(1000):
         scores.append(score)
         print 'score', scores[-1]
 
+# save results.
 with open(os.environ['output'], 'w') as result:
     pickle.dump({
         'scores': scores
