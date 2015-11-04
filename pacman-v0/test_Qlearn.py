@@ -1,19 +1,4 @@
-import numpy as np
-from pyrl.tasks.pacman.game_mdp import *
-from pyrl.tasks.pacman.ghostAgents  import *
-import pyrl.tasks.pacman.graphicsDisplay as graphicsDisplay
-import pyrl.tasks.pacman.textDisplay as textDisplay
-from pyrl.utils import Timer
-from pyrl.prob import choice
-import pyrl.agents.arch as arch
-from pyrl.algorithms.valueiter import DeepQlearn
-from pyrl.agents.agent import DQN
-from pyrl.evaluate import reward_stochastic
-from pyrl.layers import Conv, FullyConnected
-import theano
-import theano.tensor as T
-import os
-import cPickle as pickle
+from common_imports import *
 
 # load game settings.
 _layout = layout.getLayout(os.environ['layout'])
@@ -54,19 +39,30 @@ arch_func = globals()[os.environ['arch']]
 
 # define learning agent.
 dqn = DQN(task, arch_func=arch_func, state_type=T.tensor4)
-learner = DeepQlearn(dqn, gamma=0.95, lr=1e-3, memory_size = 100, epsilon=0.5)
+learner = DeepQlearn(dqn, gamma=0.95, lr=1e-3, memory_size = 1000, epsilon=0.1)
 
 # learn.
 scores = []
-for it in range(1000):
-    learner.run(task, num_episodes = 100)
-    with Timer('iteration %d' % it):
+for it in range(100):
+    with Timer('iteration %d train' % it):
+        learner.run(task, num_episodes = 10, tol=1e-6)
+    with Timer('iteration %d test' % it):
         score = reward_stochastic(dqn, task, gamma=0.95, num_trials=10, tol=1e-4)
         scores.append(score)
         print 'score', scores[-1]
+
+plot(scores)
+title('Game Score')
+xlabel('iteration')
+ylabel('score')
+savefig(os.environ['output'] + '-score.png')
 
 # save results.
 with open(os.environ['output'], 'w') as result:
     pickle.dump({
         'scores': scores
     }, result)
+
+with open(os.environ['output'] + '.model', 'w') as result:
+    pickle.dump(dqn, result)
+
