@@ -3,6 +3,7 @@ matplotlib.use('Agg')
 from matplotlib.pyplot import *
 
 import numpy as np
+import numpy.random as npr
 from pyrl.tasks.pacman.game_mdp import *
 from pyrl.tasks.pacman.ghostAgents  import *
 import pyrl.tasks.pacman.graphicsDisplay as graphicsDisplay
