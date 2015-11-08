@@ -50,7 +50,7 @@ scores = []
 
 print 'start by training task1'
 for it in range(50):
-    learner.run(task1, num_episodes = 10, tol=1e-6)
+    learner.run(task1, num_episodes = 100, tol=1e-6)
     with Timer('iteration %d' % it):
         score = reward_stochastic(dqn, task1, gamma=0.95, num_trials=10, tol=1e-4)
         scores.append(score)
@@ -58,7 +58,7 @@ for it in range(50):
 
 print 'switching to training task2'
 for it in range(50):
-    learner.run(task2, num_episodes = 10, tol=1e-6)
+    learner.run(task2, num_episodes = 100, tol=1e-6)
     with Timer('iteration %d' % it):
         score = reward_stochastic(dqn, task2, gamma=0.95, num_trials=10, tol=1e-4)
         scores.append(score)
