@@ -24,3 +24,6 @@ import time
 from pprint import pprint
 
 from IPython.display import *
+
+if not os.path.exists('result'):
+    os.mkdir('result')
