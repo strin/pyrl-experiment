@@ -1,0 +1,84 @@
+Couldn't import dot_parser, loading of dot files will not be possible.
+using arch conv_net
+proc [[2, 30], [3, 30]]
+result path result/conv_net/[[2, 30], [3, 30]]/
+run with 30 iterations
+%%%%%%%
+% <   %
+% %%% %
+% %.  %
+% %%% %
+%.    %
+%%%%%%%
+Score: 0.00
+
+it 0 total exp 890 score -88.0
+it 1 total exp 1639 score -78.0
+it 2 total exp 2529 score -78.0
+it 3 total exp 3419 score -88.0
+it 4 total exp 4309 score -81.0
+it 5 total exp 5199 score -78.0
+it 6 total exp 6089 score -87.0
+it 7 total exp 6979 score -78.0
+it 8 total exp 7869 score -78.0
+it 9 total exp 8759 score -88.0
+it 10 total exp 9649 score -79.0
+it 11 total exp 10539 score -78.0
+it 12 total exp 11429 score -78.0
+it 13 total exp 12319 score -78.0
+it 14 total exp 13154 score 260.6
+it 15 total exp 13557 score 507.0
+it 16 total exp 13718 score 364.0
+it 17 total exp 13869 score 506.0
+it 18 total exp 14018 score 447.8
+it 19 total exp 14175 score 503.2
+it 20 total exp 14331 score 506.3
+it 21 total exp 14494 score 506.3
+it 22 total exp 14638 score 506.4
+it 23 total exp 14862 score 506.3
+it 24 total exp 15012 score 506.7
+it 25 total exp 15157 score 506.0
+it 26 total exp 15301 score 506.3
+it 27 total exp 15450 score 505.7
+it 28 total exp 15591 score 505.9
+it 29 total exp 15744 score 506.7
+run with 30 iterations
+%%%%%%%
+% <   %
+% %%% %
+% %.  %
+% %%% %
+%. G  %
+%%%%%%%
+Score: 0.00
+
+it 0 total exp 15805 score -507.1
+it 1 total exp 15881 score -508.2
+it 2 total exp 15971 score -511.2
+it 3 total exp 16067 score -406.3
+it 4 total exp 16143 score -507.5
+it 5 total exp 16225 score -511.6
+it 6 total exp 16348 score -506.4
+it 7 total exp 16459 score -506.1
+it 8 total exp 16585 score -504.6
+it 9 total exp 16707 score -508.2
+it 10 total exp 16854 score -513.7
+it 11 total exp 17000 score -410.1
+it 12 total exp 17160 score -511.9
+it 13 total exp 17382 score 388.0
+it 14 total exp 17665 score 91.4
+it 15 total exp 17835 score 89.4
+it 16 total exp 18069 score 391.7
+it 17 total exp 18291 score 192.1
+it 18 total exp 18441 score -7.4
+it 19 total exp 18666 score 91.0
+it 20 total exp 18833 score 290.2
+it 21 total exp 19071 score 393.4
+it 22 total exp 19256 score 90.1
+it 23 total exp 19498 score 291.0
+it 24 total exp 19684 score -108.6
+it 25 total exp 19869 score 91.3
+it 26 total exp 20048 score -7.0
+it 27 total exp 20215 score -9.0
+it 28 total exp 20413 score 89.8
+it 29 total exp 20630 score -8.0
