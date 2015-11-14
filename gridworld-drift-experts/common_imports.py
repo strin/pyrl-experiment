@@ -4,6 +4,7 @@ sys.path.append('../../')
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib.pyplot import *
+import matplotlib.animation as animation
 
 import numpy as np
 import numpy.random as npr
