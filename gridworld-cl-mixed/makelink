@@ -1,0 +1,3 @@
+#!/bin/sh
+read uuid; echo http://localhost:18000/bundles/$uuid
+
